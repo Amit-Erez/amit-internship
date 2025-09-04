@@ -1,24 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
 import Slider from "../UI/Slider";
 
 const HotCollections = () => {
-  const [nfts, setNfts] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [nfts, setNfts] = useState(null);
   const isMounted = useRef(false);
 
   useEffect(() => {
     isMounted.current = true;
-    setLoading(true)
     async function getNfts() {
       try {
         const { data } = await axios.get(
           "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
         );
         if (isMounted.current) {
-          setNfts(data);
+          setNfts(Array.isArray(data) ? [...data] : []);
         }
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -26,7 +22,6 @@ const HotCollections = () => {
           setNfts([]);
         }
       }
-      setLoading(false)
     }
     getNfts();
     return () => {

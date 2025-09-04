@@ -1,7 +1,8 @@
 import React from "react";
 import ReactOwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link } from "react-router-dom";
-import "./Slider.css";
 import Skeleton from "./Skeleton";
 
 const Slider = ({ nfts }) => {
@@ -13,7 +14,7 @@ const Slider = ({ nfts }) => {
     loop: true,
     smartSpeed: 200,
     fluidSpeed: true,
-    responsiveClass: true, 
+    responsiveClass: true,
     responsive: {
       0: {
         items: 1,
@@ -29,30 +30,21 @@ const Slider = ({ nfts }) => {
       },
     },
   };
-  if (!nfts || nfts.length === 0)
-    return (
-      <ReactOwlCarousel className="owl-theme" {...options}>
-        {new Array(6).fill(0).map((_, index) => (
-          <div className="nft_coll">
+
+  const carouselKey = nfts === null ? "skeleton" : `loaded-${nfts.length}`;
+
+  const content =
+    nfts === null
+      ? new Array(6).fill(0).map((_, index) => (
+          <div className="nft_coll" key={index}>
             <div className="nft_wrap">
               <Link to="/item-details">
-                <Skeleton
-                  height="200px"
-                  width="300px"
-                  className="lazy img-fluid"
-                  alt=""
-                />
+                <Skeleton height="200px" width="100%" />
               </Link>
             </div>
             <div className="nft_coll_pp">
               <Link to="/author">
-                <Skeleton
-                  width="60px"
-                  height="60px"
-                  borderRadius="100%"
-                  className="lazy pp-coll"
-                  alt=""
-                />
+                <Skeleton width="60px" height="60px" borderRadius="50%" />
               </Link>
               <i className="fa fa-check"></i>
             </div>
@@ -67,14 +59,14 @@ const Slider = ({ nfts }) => {
               </span>
             </div>
           </div>
-        ))}
-      </ReactOwlCarousel>
-    );
-
-  if (nfts)
-    return (
-      <ReactOwlCarousel className="owl-theme" {...options}>
-        {nfts.map((nft, Id) => (
+        ))
+      : nfts.length === 0
+      ? [
+          <p key="empty" className="text-center">
+            No collections found.
+          </p>,
+        ]
+      : nfts.map((nft, Id) => (
           <div className="nft_coll" key={Id}>
             <div className="nft_wrap">
               <Link to="/item-details">
@@ -94,9 +86,13 @@ const Slider = ({ nfts }) => {
               <span>ERC-{nft.code}</span>
             </div>
           </div>
-        ))}
-      </ReactOwlCarousel>
-    );
+        ));
+
+  return (
+    <ReactOwlCarousel key={carouselKey} className="owl-theme" {...options}>
+      {content}
+    </ReactOwlCarousel>
+  );
 };
 
 export default Slider;
