@@ -5,11 +5,11 @@ const Skeleton = ({ width, height, borderRadius }) => {
     <div
       className="skeleton-box"
       style={{
-        width,
-        height,
-        borderRadius,
-      }}
-    ></div>
+      width,
+      height,
+      borderRadius,
+      }}>
+    </div>
   );
 };
 
