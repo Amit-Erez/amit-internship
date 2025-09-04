@@ -66,7 +66,8 @@ const Slider = ({ nfts }) => {
             No collections found.
           </p>,
         ]
-      : nfts.map((nft, Id) => (
+      : 
+      nfts.map((nft, Id) => (
           <div className="nft_coll" key={Id}>
             <div className="nft_wrap">
               <Link to="/item-details">
