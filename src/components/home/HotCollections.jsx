@@ -39,7 +39,7 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-            <Slider nfts={nfts} />
+          <Slider nfts={nfts} />
         </div>
       </div>
     </section>
@@ -47,4 +47,3 @@ const HotCollections = () => {
 };
 
 export default HotCollections;
-
