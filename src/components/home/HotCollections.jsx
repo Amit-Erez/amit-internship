@@ -1,33 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Slider from "../UI/Slider";
+import { useApiData } from "../../../src/hooks/useApiData"
+
 
 const HotCollections = () => {
-  const [nfts, setNfts] = useState(null);
-  const isMounted = useRef(false);
 
-  useEffect(() => {
-    isMounted.current = true;
-    async function getNfts() {
-      try {
-        const { data } = await axios.get(
-          "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
-        );
-        if (isMounted.current) {
-          setNfts(Array.isArray(data) ? [...data] : []);
-        }
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        if (isMounted.current) {
-          setNfts([]);
-        }
-      }
-    }
-    getNfts();
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
+  const { data: nfts } = useApiData(
+      "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
+    );
+
 
   return (
     <section id="section-collections" className="no-bottom">

@@ -38,22 +38,16 @@ const Slider = ({ nfts }) => {
       ? new Array(6).fill(0).map((_, index) => (
           <div className="nft_coll" key={index}>
             <div className="nft_wrap">
-              <Link to="/item-details">
                 <Skeleton height="200px" width="100%" />
-              </Link>
             </div>
             <div className="nft_coll_pp">
-              <Link to="/author">
                 <Skeleton width="60px" height="60px" borderRadius="50%" />
-              </Link>
               <i className="fa fa-check"></i>
             </div>
             <div className="nft_coll_info">
-              <Link to="/explore">
                 <h4>
                   <Skeleton width="80px" height="18px" />
                 </h4>
-              </Link>
               <span>
                 <Skeleton width="50px" height="18px" />
               </span>
@@ -70,12 +64,12 @@ const Slider = ({ nfts }) => {
       nfts.map((nft, Id) => (
           <div className="nft_coll" key={Id}>
             <div className="nft_wrap">
-              <Link to="/item-details">
+              <Link to={`/item-details/${nft.nftId}`}>
                 <img src={nft.nftImage} className="lazy img-fluid" alt="" />
               </Link>
             </div>
             <div className="nft_coll_pp">
-              <Link to="/author">
+              <Link to={`/author/${nft.authorId}`}>
                 <img className="lazy pp-coll" src={nft.authorImage} alt="" />
               </Link>
               <i className="fa fa-check"></i>

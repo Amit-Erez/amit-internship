@@ -1,34 +1,12 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React from "react";
 import SliderNews from "../UI/SliderNews";
+import { useApiData } from "../../../src/hooks/useApiData"
 
 const NewItems = () => {
-  const [news, setNews] = useState(null);
-  const isMounted = useRef(false);
 
-  useEffect(() => {
-    isMounted.current = true;
-    async function getNews() {
-      try {
-        const { data } = await axios.get(
-          "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems"
-        );
-        if (isMounted.current) {
-          setNews(Array.isArray(data) ? [...data] : []);
-        }
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        if (isMounted.current) {
-          setNews([]);
-        }
-      }
-    }
-    getNews();
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
+  const { data: news } = useApiData(
+    "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems"
+  );
 
   return (
     <section id="section-items" className="no-bottom">
@@ -40,7 +18,7 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <SliderNews news={news} />
+          <SliderNews news={news}/>
         </div>
       </div>
     </section>
