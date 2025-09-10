@@ -111,7 +111,7 @@ const ItemDetails = () => {
                   <div className="d-flex flex-row">
                     <div className="mr40">
                       {loading ? 
-                      <Skeleton width="60px" height="16px" />
+                      <Skeleton width="60px" height="17px" />
                       : 
                       <h6>Owner</h6>
                       }
@@ -132,7 +132,7 @@ const ItemDetails = () => {
                         </div>
                         <div className="author_list_info">
                           { loading ?
-                          <Skeleton width="60px" height="16px" />
+                          <Skeleton width="60px" height="21px" />
                           :
                           <Link to={`/author/${details.ownerId}`}>
                             {details.ownerName}
@@ -146,7 +146,7 @@ const ItemDetails = () => {
                   <div className="de_tab tab_simple">
                     <div className="de_tab_content">
                       {loading ? 
-                      <Skeleton width="60px" height="16px" />
+                      <Skeleton width="60px" height="17px" />
                       : 
                       <h6>Creator</h6>
                       }
@@ -167,7 +167,7 @@ const ItemDetails = () => {
                         </div>
                         <div className="author_list_info">
                           {loading ?
-                          <Skeleton width="60px" height="16px" />
+                          <Skeleton width="60px" height="21px" />
                           : 
                           <Link to={`/author/${details.creatorId}`}>
                             {details.creatorName}
@@ -178,13 +178,13 @@ const ItemDetails = () => {
                     </div>
                     <div className="spacer-40"></div>
                     {loading ?
-                    <Skeleton width="40px" height="16px" />
+                    <Skeleton width="40px" height="17px" />
                     :
                     <h6>Price</h6>
                     }
                     <div className="nft-item-price">
                       { loading ?
-                      <Skeleton width="70px" height="30px" />
+                      <Skeleton width="94px" height="37px" />
                       :
                       <>
                       <img src={EthImage} alt="" />
