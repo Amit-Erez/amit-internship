@@ -1,33 +1,30 @@
 import axios from "axios";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export function useApiData(endpoint) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const isMounted = useRef(false);
 
   useEffect(() => {
-    isMounted.current = true;
+    const controller = new AbortController();
 
     async function fetchData() {
       try {
-        const { data } = await axios.get(endpoint);
-        if (isMounted.current) {
-          setData(Array.isArray(data) ? [...data] : []);
-        }
+        const { data } = await axios.get(endpoint, { signal: controller.signal });
+        setData(Array.isArray(data) ? [...data] : []);
+
       } catch (err) {
-        if (isMounted.current) {
-          console.error("Error fetching data:", err);
-          setError(err);
-          setData([]);
-        }
+        if (axios.isCancel(err)) return;
+        console.error("Error fetching data:", err);
+        setError(err);
+        setData(null);
       }
     }
 
     fetchData();
 
     return () => {
-      isMounted.current = false;
+      controller.abort();
     };
   }, [endpoint]);
 

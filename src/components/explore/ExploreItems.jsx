@@ -141,16 +141,20 @@ const ExploreItems = () => {
             </div>
           ))}
       <div className="col-md-12 text-center">
+        { 
+        count === 16 ? 
+        null :
         <Link
-          to=""
-          id="loadmore"
-          className="btn-main lead"
-          onClick={() =>
-            setCount((prevCount) => Math.min(prevCount + 4, exploreNfts.length))
-          }
+        to=""
+        id="loadmore"
+        className="btn-main lead"
+        onClick={() =>
+          setCount((prevCount) => Math.min(prevCount + 4, exploreNfts.length))
+        }
         >
           Load more
         </Link>
+        }
       </div>
     </>
   );

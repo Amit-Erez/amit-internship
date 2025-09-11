@@ -4,10 +4,8 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link } from "react-router-dom";
 import Skeleton from "./Skeleton";
-import { useState, useEffect } from "react";
 
 const Slider = ({ nfts }) => {
-  const [carouselMounted, setCarouselMounted] = useState(true);
 
   const options = {
     items: 4,
@@ -86,17 +84,12 @@ const Slider = ({ nfts }) => {
           </div>
         ));
 
-        useEffect(() => {
-    return () => {
-      setCarouselMounted(false);
-    };
-  }, []);
 
-  return carouselMounted ? (
+  return (
     <ReactOwlCarousel key={carouselKey} className="owl-theme" {...options}>
       {content}
     </ReactOwlCarousel>
-  ) : null;
+  )
 };
 
 export default Slider;

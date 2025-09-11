@@ -31,7 +31,7 @@ const ItemDetails = () => {
         setError(err);
         setDetails({});
         timeoutId = setTimeout(() => setLoading(false), 300);
-      } 
+      }
     }
     getDetails();
 
@@ -46,156 +46,15 @@ const ItemDetails = () => {
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
         <section aria-label="section" className="mt90 sm-mt-0">
-          { loading ? 
           <div className="container">
             <div className="row">
               <div className="col-md-6 text-center">
-                  <Skeleton className="img-fluid img-rounded mb-sm-30 nft-image"
-                   width="600px" height="464px" />
-              </div>
-              <div className="col-md-6">
-                <div className="item_info">
-                    <h2>
-                      <Skeleton width="350px" height="46px" />
-                    </h2>
-                    <div className="item_info_counts">
-                      <Skeleton
-                        className="item_info_views"
-                        width="80px"
-                        height="30px"
-                      />
-                      <Skeleton
-                        className="item_info_like"
-                        width="80px"
-                        height="30px"
-                      />
-                    </div>
-                    <Skeleton width="450px" height="80px" />
-                  <div className="d-flex flex-row">
-                    <div className="mr40">
-                      <Skeleton width="60px" height="17px" />
-                      <div className="item_author">
-                        <div className="author_list_pp">
-                          <Skeleton width="50px" height="50px" borderRadius="50%" />
-                        </div>
-                        <div className="author_list_info">
-                          <Skeleton width="60px" height="21px" />
-                        </div>
-                      </div>
-                    </div>
-                    <div></div>
-                  </div>
-                  <div className="de_tab tab_simple">
-                    <div className="de_tab_content">
-                      <Skeleton width="60px" height="17px" />
-                      <div className="item_author">
-                        <div className="author_list_pp">
-                          <Skeleton width="50px" height="50px" borderRadius="50%" />
-                        </div>
-                        <div className="author_list_info">
-                          <Skeleton width="60px" height="21px" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="spacer-40"></div>
-                    <Skeleton width="40px" height="17px" />
-                    <div className="nft-item-price">
-                      <Skeleton width="94px" height="37px" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-            :
-          <div className="container">
-            <div className="row">
-              <div className="col-md-6 text-center">
-                  <img
-                    src={details.nftImage}
-                    className="img-fluid img-rounded mb-sm-30 nft-image"
-                    alt=""
-                  />
-              </div>
-              <div className="col-md-6">
-                <div className="item_info">
-                    <h2>
-                      {details.title} #{details.tag}
-                    </h2>
-                    <div className="item_info_counts">
-                      <div className="item_info_views">
-                        <i className="fa fa-eye"></i>
-                        {details.views}
-                      </div>
-                      <div className="item_info_like">
-                        <i className="fa fa-heart"></i>
-                        {details.likes}
-                      </div>
-                    </div>
-                    <p>{details.description}</p>
-                  <div className="d-flex flex-row">
-                    <div className="mr40">
-                      <h6>Owner</h6>
-                      <div className="item_author">
-                        <div className="author_list_pp">
-                          <Link to={`/author/${details.ownerId}`}>
-                            <img
-                              className="lazy"
-                              src={details.ownerImage}
-                              alt=""
-                            />
-                            <i className="fa fa-check"></i>
-                          </Link>
-                        </div>
-                        <div className="author_list_info">
-                          <Link to={`/author/${details.ownerId}`}>
-                            {details.ownerName}
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div></div>
-                  </div>
-                  <div className="de_tab tab_simple">
-                    <div className="de_tab_content">
-                      <h6>Creator</h6>
-                      <div className="item_author">
-                        <div className="author_list_pp">
-                          <Link to={`/author/${details.creatorId}`}>
-                            <img
-                              className="lazy"
-                              src={details.creatorImage}
-                              alt=""
-                            />
-                            <i className="fa fa-check"></i>
-                          </Link>
-                        </div>
-                        <div className="author_list_info">
-                          <Link to={`/author/${details.creatorId}`}>
-                            {details.creatorName}
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="spacer-40"></div>
-                    <h6>Price</h6>
-                    <div className="nft-item-price">
-                      <img src={EthImage} alt="" />
-                      <span>{details.price}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-}
-          {/* <div className="container">
-            <div className="row">
-              <div className="col-md-6 text-center">
-
                 {loading ? (
-                  <Skeleton className="img-fluid img-rounded mb-sm-30 nft-image"
-                   width="600px" height="464px" />
+                  <Skeleton
+                    className="img-fluid img-rounded mb-sm-30 nft-image"
+                    width="600px"
+                    height="464px"
+                  />
                 ) : (
                   <img
                     src={details.nftImage}
@@ -203,11 +62,9 @@ const ItemDetails = () => {
                     alt=""
                   />
                 )}
-
               </div>
               <div className="col-md-6">
                 <div className="item_info">
-
                   {loading ? (
                     <h2>
                       <Skeleton width="350px" height="46px" />
@@ -217,7 +74,6 @@ const ItemDetails = () => {
                       {details.title} #{details.tag}
                     </h2>
                   )}
-
                   {loading ? (
                     <div className="item_info_counts">
                       <Skeleton
@@ -243,43 +99,45 @@ const ItemDetails = () => {
                       </div>
                     </div>
                   )}
-
                   {loading ? (
                     <Skeleton width="450px" height="80px" />
                   ) : (
                     <p>{details.description}</p>
                   )}
-
                   <div className="d-flex flex-row">
                     <div className="mr40">
-                      {loading ? 
-                      <Skeleton width="60px" height="17px" />
-                      : 
-                      <h6>Owner</h6>
-                      }
+                      {loading ? (
+                        <Skeleton width="60px" height="17px" />
+                      ) : (
+                        <h6>Owner</h6>
+                      )}
                       <div className="item_author">
                         <div className="author_list_pp">
-                          {loading ?
-                          <Skeleton width="50px" height="50px" borderRadius="50%" />
-                          : 
-                          <Link to={`/author/${details.ownerId}`}>
-                            <img
-                              className="lazy"
-                              src={details.ownerImage}
-                              alt=""
+                          {loading ? (
+                            <Skeleton
+                              width="50px"
+                              height="50px"
+                              borderRadius="50%"
                             />
-                            <i className="fa fa-check"></i>
-                          </Link>
-                          }
+                          ) : (
+                            <Link to={`/author/${details.ownerId}`}>
+                              <img
+                                className="lazy"
+                                src={details.ownerImage}
+                                alt=""
+                              />
+                              <i className="fa fa-check"></i>
+                            </Link>
+                          )}
                         </div>
                         <div className="author_list_info">
-                          { loading ?
-                          <Skeleton width="60px" height="21px" />
-                          :
-                          <Link to={`/author/${details.ownerId}`}>
-                            {details.ownerName}
-                          </Link>
-                          }
+                          {loading ? (
+                            <Skeleton width="60px" height="21px" />
+                          ) : (
+                            <Link to={`/author/${details.ownerId}`}>
+                              {details.ownerName}
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -287,58 +145,62 @@ const ItemDetails = () => {
                   </div>
                   <div className="de_tab tab_simple">
                     <div className="de_tab_content">
-                      {loading ? 
-                      <Skeleton width="60px" height="17px" />
-                      : 
-                      <h6>Creator</h6>
-                      }
+                      {loading ? (
+                        <Skeleton width="60px" height="17px" />
+                      ) : (
+                        <h6>Creator</h6>
+                      )}
                       <div className="item_author">
                         <div className="author_list_pp">
-                          {loading ? 
-                          <Skeleton width="50px" height="50px" borderRadius="50%" />
-                          :
-                          <Link to={`/author/${details.creatorId}`}>
-                            <img
-                              className="lazy"
-                              src={details.creatorImage}
-                              alt=""
+                          {loading ? (
+                            <Skeleton
+                              width="50px"
+                              height="50px"
+                              borderRadius="50%"
                             />
-                            <i className="fa fa-check"></i>
-                          </Link>
-                          }
+                          ) : (
+                            <Link to={`/author/${details.creatorId}`}>
+                              <img
+                                className="lazy"
+                                src={details.creatorImage}
+                                alt=""
+                              />
+                              <i className="fa fa-check"></i>
+                            </Link>
+                          )}
                         </div>
                         <div className="author_list_info">
-                          {loading ?
-                          <Skeleton width="60px" height="21px" />
-                          : 
-                          <Link to={`/author/${details.creatorId}`}>
-                            {details.creatorName}
-                          </Link>
-                          }
+                          {loading ? (
+                            <Skeleton width="60px" height="21px" />
+                          ) : (
+                            <Link to={`/author/${details.creatorId}`}>
+                              {details.creatorName}
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>
                     <div className="spacer-40"></div>
-                    {loading ?
-                    <Skeleton width="40px" height="17px" />
-                    :
-                    <h6>Price</h6>
-                    }
+                    {loading ? (
+                      <Skeleton width="40px" height="17px" />
+                    ) : (
+                      <h6>Price</h6>
+                    )}
                     <div className="nft-item-price">
-                      { loading ?
-                      <Skeleton width="94px" height="37px" />
-                      :
-                      <>
-                      <img src={EthImage} alt="" />
-                      <span>{details.price}</span>
-                      </>
-                      }
+                      {loading ? (
+                        <Skeleton width="94px" height="37px" />
+                      ) : (
+                        <>
+                          <img src={EthImage} alt="" />
+                          <span>{details.price}</span>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </section>
       </div>
     </div>

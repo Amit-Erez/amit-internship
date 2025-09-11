@@ -5,10 +5,8 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link } from "react-router-dom";
 import Skeleton from "./Skeleton";
 import Timer from "./Timer";
-import { useState, useEffect } from "react";
 
 const SliderNews = ({ news }) => {
-  const [mounted, setMounted] = useState(true);
 
   const options = {
     items: 4,
@@ -143,15 +141,11 @@ const SliderNews = ({ news }) => {
           </div>
         ));
 
-  useEffect(() => {
-    return () => setMounted(false); 
-  }, []);
-
-  return mounted ? (
+  return  (
     <ReactOwlCarousel key={newsKey} className="owl-theme" {...options}>
       {content}
     </ReactOwlCarousel>
-  ) : null;
+  ) 
 };
 
 export default SliderNews;
