@@ -8,14 +8,13 @@ import Skeleton from "../components/UI/Skeleton";
 const ItemDetails = () => {
   const { id } = useParams();
   const isMounted = useRef(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState({});
   const [error, setError] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     isMounted.current = true;
-    setLoading(true);
 
     async function getDetails() {
       const { data } = await axios.get(
@@ -24,16 +23,14 @@ const ItemDetails = () => {
       try {
         if (isMounted.current) {
           setDetails(data ? { ...data } : {});
+          setTimeout(() => setLoading(false), 300);
         }
       } catch (err) {
         console.error("No Data Found", err);
         setError(err);
         setDetails({});
-      } finally {
-        if (isMounted.current) {
-          setLoading(false);
-        }
-      }
+        setTimeout(() => setLoading(false), 300);
+      } 
     }
     getDetails();
 

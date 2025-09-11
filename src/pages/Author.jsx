@@ -10,14 +10,13 @@ const Author = () => {
   const { id } = useParams();
   const [author, setAuthor] = useState({});
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [followers, setFollowers] = useState();
   const [isFollow, setIsFollow] = useState(false);
   const isMounted = useRef(false);
 
   useEffect(() => {
     isMounted.current = true;
-    setLoading(true);
 
     async function getAuthor() {
       try {
@@ -27,18 +26,16 @@ const Author = () => {
         if (isMounted.current) {
           setAuthor( data ? { ...data } : {});
           setFollowers(data.followers);
+          setTimeout(() => setLoading(false), 300);
         }
       } catch (err) {
         if (isMounted.current) {
           console.error("Error fetching data:", err);
           setError(err);
           setAuthor({});
+          setTimeout(() => setLoading(false), 300);
         }
-      } finally {
-        if (isMounted.current) {
-          setLoading(false);
-        }
-      }
+      } 
     }
 
     getAuthor();
@@ -150,6 +147,7 @@ const Author = () => {
                   <AuthorItems
                     author={author}
                     nftItems={author.nftCollection}
+                    loading={loading}
                   />
                 </div>
               </div>
