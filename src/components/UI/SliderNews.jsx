@@ -5,8 +5,11 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link } from "react-router-dom";
 import Skeleton from "./Skeleton";
 import Timer from "./Timer";
+import { useState, useEffect } from "react";
 
 const SliderNews = ({ news }) => {
+  const [mounted, setMounted] = useState(true);
+
   const options = {
     items: 4,
     margin: 10,
@@ -93,7 +96,7 @@ const SliderNews = ({ news }) => {
                 data-bs-placement="top"
                 title="Creator: Monica Lucas"
               >
-                <img className="lazy" src={item.authorImage} alt="" />
+                <img className="lazy" src={item.authorImage} loading="lazy" alt="" />
                 <i className="fa fa-check"></i>
               </Link>
             </div>
@@ -122,6 +125,7 @@ const SliderNews = ({ news }) => {
                 <img
                   src={item.nftImage}
                   className="lazy nft__item_preview"
+                  loading="lazy"
                   alt=""
                 />
               </Link>
@@ -138,11 +142,16 @@ const SliderNews = ({ news }) => {
             </div>
           </div>
         ));
-  return (
+
+  useEffect(() => {
+    return () => setMounted(false); 
+  }, []);
+
+  return mounted ? (
     <ReactOwlCarousel key={newsKey} className="owl-theme" {...options}>
       {content}
     </ReactOwlCarousel>
-  );
+  ) : null;
 };
 
 export default SliderNews;

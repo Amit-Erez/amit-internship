@@ -17,6 +17,7 @@ const Author = () => {
 
   useEffect(() => {
     isMounted.current = true;
+    let timeoutId;
 
     async function getAuthor() {
       try {
@@ -26,14 +27,14 @@ const Author = () => {
         if (isMounted.current) {
           setAuthor( data ? { ...data } : {});
           setFollowers(data.followers);
-          setTimeout(() => setLoading(false), 300);
+          timeoutId = setTimeout(() => setLoading(false), 300);
         }
       } catch (err) {
         if (isMounted.current) {
           console.error("Error fetching data:", err);
           setError(err);
           setAuthor({});
-          setTimeout(() => setLoading(false), 300);
+          timeoutId = setTimeout(() => setLoading(false), 300);
         }
       } 
     }
@@ -42,6 +43,7 @@ const Author = () => {
 
     return () => {
       isMounted.current = false;
+      clearTimeout(timeoutId);
     };
   }, [id]);
 

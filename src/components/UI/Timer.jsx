@@ -7,11 +7,17 @@ const Timer = ({ timeleft }) => {
     if (time <= 0) return;
 
     const interval = setInterval(() => {
-      setTime((prev) => Math.max(prev - 1000, 0));
+      setTime((prev) => {
+        if (prev <= 1000) {
+          clearInterval(interval); 
+          return 0;
+        }
+        return prev - 1000;
+      });
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [time]);
+  }, []);
 
   const format = (ms) => {
     if (ms <= 0) return "EXPIRED";

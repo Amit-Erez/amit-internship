@@ -4,8 +4,11 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link } from "react-router-dom";
 import Skeleton from "./Skeleton";
+import { useState, useEffect } from "react";
 
 const Slider = ({ nfts }) => {
+  const [carouselMounted, setCarouselMounted] = useState(true);
+
   const options = {
     items: 4,
     margin: 10,
@@ -65,12 +68,12 @@ const Slider = ({ nfts }) => {
           <div className="nft_coll" key={Id}>
             <div className="nft_wrap">
               <Link to={`/item-details/${nft.nftId}`}>
-                <img src={nft.nftImage} className="lazy img-fluid" alt="" />
+                <img src={nft.nftImage} className="lazy img-fluid" loading="lazy" alt="" />
               </Link>
             </div>
             <div className="nft_coll_pp">
               <Link to={`/author/${nft.authorId}`}>
-                <img className="lazy pp-coll" src={nft.authorImage} alt="" />
+                <img className="lazy pp-coll" src={nft.authorImage} loading="lazy" alt="" />
               </Link>
               <i className="fa fa-check"></i>
             </div>
@@ -83,11 +86,17 @@ const Slider = ({ nfts }) => {
           </div>
         ));
 
-  return (
+        useEffect(() => {
+    return () => {
+      setCarouselMounted(false);
+    };
+  }, []);
+
+  return carouselMounted ? (
     <ReactOwlCarousel key={carouselKey} className="owl-theme" {...options}>
       {content}
     </ReactOwlCarousel>
-  );
+  ) : null;
 };
 
 export default Slider;

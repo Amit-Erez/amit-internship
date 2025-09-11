@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
-import { useApiData } from "../hooks/useApiData";
 
 const Explore = () => {
   useEffect(() => {
