@@ -7,7 +7,6 @@ import Skeleton from "./Skeleton";
 import Timer from "./Timer";
 
 const SliderNews = ({ news }) => {
-
   const options = {
     items: 4,
     margin: 10,
@@ -40,8 +39,8 @@ const SliderNews = ({ news }) => {
       ? new Array(7).fill(0).map((_, index) => (
           <div className="nft__item" key={index}>
             <div className="author_list_pp">
-                <Skeleton width="50px" height="50px" borderRadius="50%" />
-                <i className="fa fa-check"></i>
+              <Skeleton width="50px" height="50px" borderRadius="50%" />
+              <i className="fa fa-check"></i>
             </div>
             <div className="nft__item_wrap">
               <div className="nft__item_extra">
@@ -61,12 +60,12 @@ const SliderNews = ({ news }) => {
                   </div>
                 </div>
               </div>
-                <Skeleton height="200px" width="100%" borderRadius="10px" />
+              <Skeleton height="200px" width="100%" borderRadius="10px" />
             </div>
             <div className="nft__item_info">
-                <h4>
-                  <Skeleton width="80px" height="18px" />
-                </h4>
+              <h4>
+                <Skeleton width="80px" height="18px" />
+              </h4>
               <div className="nft__item_price">
                 <Skeleton width="50px" height="18px" />
               </div>
@@ -94,7 +93,12 @@ const SliderNews = ({ news }) => {
                 data-bs-placement="top"
                 title="Creator: Monica Lucas"
               >
-                <img className="lazy" src={item.authorImage} loading="lazy" alt="" />
+                <img
+                  className="lazy"
+                  src={item.authorImage}
+                  loading="lazy"
+                  alt=""
+                />
                 <i className="fa fa-check"></i>
               </Link>
             </div>
@@ -141,11 +145,13 @@ const SliderNews = ({ news }) => {
           </div>
         ));
 
-  return  (
-    <ReactOwlCarousel key={newsKey} className="owl-theme" {...options}>
-      {content}
-    </ReactOwlCarousel>
-  ) 
+  return (
+    <div data-aos="fade" data-aos-easing="linear">
+      <ReactOwlCarousel key={newsKey} className="owl-theme" {...options}>
+        {content}
+      </ReactOwlCarousel>
+    </div>
+  );
 };
 
 export default SliderNews;

@@ -13,40 +13,77 @@ const BrowseByCategory = () => {
             </div>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-image"></i>
-              <span>Art</span>
-            </Link>
+            <div data-aos="fade-left"
+            data-aos-offset="0"
+            data-aos-duration="800"
+            data-aos-anchor-placement="top-bottom"
+            >
+              <Link to="/explore" className="icon-box style-2 rounded">
+                <i className="fa fa-image"></i>
+                <span>Art</span>
+              </Link>
+            </div>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-music"></i>
-              <span>Music</span>
-            </Link>
+            <div data-aos="fade-left"
+            data-aos-offset="0"
+            data-aos-duration="800"
+            data-aos-delay="50"
+            data-aos-anchor-placement="top-bottom">
+              <Link to="/explore" className="icon-box style-2 rounded">
+                <i className="fa fa-music"></i>
+                <span>Music</span>
+              </Link>
+            </div>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-search"></i>
-              <span>Domain Names</span>
-            </Link>
+            <div data-aos="fade-left"
+            data-aos-offset="0"
+            data-aos-duration="800"
+            data-aos-delay="100"
+            data-aos-anchor-placement="top-bottom">
+              <Link to="/explore" className="icon-box style-2 rounded">
+                <i className="fa fa-search"></i>
+                <span>Domain Names</span>
+              </Link>
+            </div>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-globe"></i>
-              <span>Virtual Worlds</span>
-            </Link>
+            <div data-aos="fade-left"
+            data-aos-offset="0"
+            data-aos-duration="800"
+            data-aos-delay="150"
+            data-aos-anchor-placement="top-bottom">
+              <Link to="/explore" className="icon-box style-2 rounded">
+                <i className="fa fa-globe"></i>
+                <span>Virtual Worlds</span>
+              </Link>
+            </div>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-vcard"></i>
-              <span>Trading Cards</span>
-            </Link>
+            <div data-aos="fade-left"
+            data-aos-offset="0"
+            data-aos-duration="800"
+            data-aos-delay="200"
+            data-aos-anchor-placement="top-bottom"
+            >
+              <Link to="/explore" className="icon-box style-2 rounded">
+                <i className="fa fa-vcard"></i>
+                <span>Trading Cards</span>
+              </Link>
+            </div>
           </div>
           <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-th"></i>
-              <span>Collectibles</span>
-            </Link>
+            <div data-aos="fade-left"
+            data-aos-offset="0"
+            data-aos-duration="800"
+            data-aos-delay="250"
+            data-aos-anchor-placement="top-bottom">
+              <Link to="/explore" className="icon-box style-2 rounded">
+                <i className="fa fa-th"></i>
+                <span>Collectibles</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
