@@ -17,6 +17,7 @@ const BrowseByCategory = () => {
             data-aos-offset="0"
             data-aos-duration="800"
             data-aos-anchor-placement="top-bottom"
+            data-aos-once="true"
             >
               <Link to="/explore" className="icon-box style-2 rounded">
                 <i className="fa fa-image"></i>
@@ -29,7 +30,8 @@ const BrowseByCategory = () => {
             data-aos-offset="0"
             data-aos-duration="800"
             data-aos-delay="50"
-            data-aos-anchor-placement="top-bottom">
+            data-aos-anchor-placement="top-bottom"
+            data-aos-once="true">
               <Link to="/explore" className="icon-box style-2 rounded">
                 <i className="fa fa-music"></i>
                 <span>Music</span>
@@ -41,7 +43,8 @@ const BrowseByCategory = () => {
             data-aos-offset="0"
             data-aos-duration="800"
             data-aos-delay="100"
-            data-aos-anchor-placement="top-bottom">
+            data-aos-anchor-placement="top-bottom"
+            data-aos-once="true">
               <Link to="/explore" className="icon-box style-2 rounded">
                 <i className="fa fa-search"></i>
                 <span>Domain Names</span>
@@ -53,7 +56,8 @@ const BrowseByCategory = () => {
             data-aos-offset="0"
             data-aos-duration="800"
             data-aos-delay="150"
-            data-aos-anchor-placement="top-bottom">
+            data-aos-anchor-placement="top-bottom"
+            data-aos-once="true">
               <Link to="/explore" className="icon-box style-2 rounded">
                 <i className="fa fa-globe"></i>
                 <span>Virtual Worlds</span>
@@ -66,6 +70,7 @@ const BrowseByCategory = () => {
             data-aos-duration="800"
             data-aos-delay="200"
             data-aos-anchor-placement="top-bottom"
+            data-aos-once="true"
             >
               <Link to="/explore" className="icon-box style-2 rounded">
                 <i className="fa fa-vcard"></i>
@@ -78,7 +83,8 @@ const BrowseByCategory = () => {
             data-aos-offset="0"
             data-aos-duration="800"
             data-aos-delay="250"
-            data-aos-anchor-placement="top-bottom">
+            data-aos-anchor-placement="top-bottom"
+            data-aos-once="true">
               <Link to="/explore" className="icon-box style-2 rounded">
                 <i className="fa fa-th"></i>
                 <span>Collectibles</span>

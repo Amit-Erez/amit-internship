@@ -50,8 +50,10 @@ const TopSellers = () => {
                       data-aos="fade"
                       data-aos-once="true"
                       data-aos-easing="linear"
+                      data-aos-offset="0"
+                      key={Id}
                     >
-                      <li key={Id}>
+                      <li >
                         <div className="author_list_pp">
                           <Link to={`/author/${seller.authorId}`}>
                             <img

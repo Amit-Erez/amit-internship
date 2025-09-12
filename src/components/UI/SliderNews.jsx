@@ -146,7 +146,7 @@ const SliderNews = ({ news }) => {
         ));
 
   return (
-    <div data-aos="fade" data-aos-easing="linear">
+    <div data-aos="fade" data-aos-easing="linear" data-aos-once="true">
       <ReactOwlCarousel key={newsKey} className="owl-theme" {...options}>
         {content}
       </ReactOwlCarousel>

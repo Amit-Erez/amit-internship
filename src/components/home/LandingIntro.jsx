@@ -7,14 +7,14 @@ const LandingIntro = () => {
         <div className="row">
           <div className="col-lg-4 col-md-6 mb-sm-30">
             <div className="feature-box f-boxed style-3">
-              <div data-aos="fade" data-aos-duration="300"
+              <div data-aos="fade" data-aos-duration="1500"
               mirror="false">
                 <i className="bg-color-2 i-boxed icon_wallet"></i>
               </div>
               <div className="text">
                 <div
                   data-aos="fade-up"
-                  data-aos-duration="500"
+                  data-aos-duration="300"
                   data-aos-easing="linear"
                   mirror="false"
                 >
@@ -22,7 +22,7 @@ const LandingIntro = () => {
                 </div>
                 <div
                   data-aos="fade-up"
-                  data-aos-duration="500"
+                  data-aos-duration="300"
                   data-aos-delay="50"
                   data-aos-easing="linear"
                   mirror="false"
@@ -45,7 +45,7 @@ const LandingIntro = () => {
               <div className="text">
                 <div
                   data-aos="fade-up"
-                  data-aos-duration="500"
+                  data-aos-duration="300"
                   data-aos-easing="linear"
                   mirror="false"
                 >
@@ -53,7 +53,7 @@ const LandingIntro = () => {
                 </div>
                 <div
                   data-aos="fade-up"
-                  data-aos-duration="500"
+                  data-aos-duration="300"
                   data-aos-delay="50"
                   data-aos-easing="linear"
                   mirror="false"
@@ -76,7 +76,7 @@ const LandingIntro = () => {
               <div className="text">
                 <div
                   data-aos="fade-up"
-                  data-aos-duration="500"
+                  data-aos-duration="300"
                   data-aos-easing="linear"
                   mirror="false"
                 >
@@ -84,7 +84,7 @@ const LandingIntro = () => {
                 </div>
                 <div
                   data-aos="fade-up"
-                  data-aos-duration="500"
+                  data-aos-duration="300"
                   data-aos-delay="50"
                   data-aos-easing="linear"
                   mirror="false"
